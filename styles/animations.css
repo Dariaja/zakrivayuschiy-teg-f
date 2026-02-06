@@ -50,9 +50,9 @@
 }
 
 .theme-menu__button::after {
+  transition: transform 0.3s;
   transform: scalex(0);
   transform-origin: left;
-  transition: transform 0.3s;
 }
 
 .theme-menu__button:focus-visible::after {
@@ -74,7 +74,6 @@
 .like-icon.is-liked .heart {
   animation: big-heart 0.3s ease-in 0.1s forwards;
 }
-
 
 .like-icon:hover .core {
   transition-delay: 0.03s;

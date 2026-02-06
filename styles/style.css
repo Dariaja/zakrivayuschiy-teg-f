@@ -10,21 +10,16 @@
 
 */
 
-
 @supports (font-variation-settings: normal) {
   .page {
     font-family: var(--font-main);
   }
 }
 
-@supports (
-  (text-stroke: 1px var(--color-bg)) or
-    (-webkit-text-stroke: 1px var(--color-bg))
-) {
+@supports (-webkit-text-stroke: 1px var(--color-bg)) {
   .watermark {
     text-shadow: none;
     -webkit-text-stroke: 1px var(--color-bg);
-    text-stroke: 1px var(--color-bg);
   }
 }
 
@@ -75,8 +70,8 @@
   display: flex;
   flex-direction: column;
   gap: 7px;
-  padding-inline-start: 11px;
   margin-block-end: 10px;
+  padding-inline-start: 11px;
 }
 
 .theme-menu__button {
@@ -191,8 +186,6 @@
   mix-blend-mode: hard-light;
 }
 
-
-
 .card__text {
   display: flex;
   flex-direction: column;
@@ -276,7 +269,6 @@
 .main-body {
   fill: transparent;
 }
-
 
 .sparks {
   opacity: 0;
