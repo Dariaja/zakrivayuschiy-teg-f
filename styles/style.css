@@ -10,7 +10,360 @@
 
 */
 
+
+@supports (font-variation-settings: normal) {
+  .page {
+    font-family: var(--font-main);
+  }
+}
+
+@supports (
+  (text-stroke: 1px var(--color-bg)) or
+    (-webkit-text-stroke: 1px var(--color-bg))
+) {
+  .watermark {
+    text-shadow: none;
+    -webkit-text-stroke: 1px var(--color-bg);
+    text-stroke: 1px var(--color-bg);
+  }
+}
+
 .page {
+  margin: auto;
+  padding-block-start: 100px;
+  color: var(--color-main);
+  background-color: var(--color-bg);
+  background-image: var(--img-bg);
+  background-size: cover;
+  background-attachment: fixed;
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  max-inline-size: 700px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-block-end: 95px;
+  border: 2px solid var(--color-main);
+  font-family: var(--font-accent);
+  background-color: var(--color-bg);
+}
+
+.header__logo {
+  margin-block-end: 20px;
+  padding-block-start: clamp(6.875rem, 6.3462rem + 4.9231vw, 7.875rem);
+  font-weight: var(--font-weight-main);
+  font-size: clamp(3.0625rem, 1.9087rem + 4.9231vw, 4.0625rem);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.header__title {
+  font-weight: var(--font-weight-main);
+  font-size: clamp(0.875rem, 0.226rem + 2.7692vw, 1.4375rem);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.header__theme-menu {
+  padding-block: 25px 25px;
+}
+
+.theme-menu__list {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding-inline-start: 11px;
+  margin-block-end: 10px;
+}
+
+.theme-menu__button {
+  position: relative;
+  border: none;
+  font-size: 14px;
+  line-height: 1;
+  text-transform: uppercase;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.theme-menu__button:hover {
+  opacity: 0.6;
+}
+
+.theme-menu__button:disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.theme-menu__button:disabled::before {
+  content: "▶";
+  position: absolute;
+  inset-inline-start: -16px;
+}
+
+.theme-menu__button:focus {
+  outline: none;
+  opacity: 0.6;
+}
+
+.theme-menu__button::after {
+  content: "";
+  display: block;
+  background-color: var(--color-main);
+  block-size: 2px;
+}
+
+.content__list {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid var(--color-main);
+  background-color: var(--color-bg);
+}
+
+.card__title {
+  border-block-end: 2px solid var(--color-main);
+  padding: 4px 24px 4px 10px;
+  font-size: 18px;
+  line-height: 1.21;
+  font-variation-settings: "wght" var(--font-weight-title);
+}
+
+.card__image {
+  position: relative;
+}
+
+.image-source {
+  object-fit: cover;
+  object-position: right;
+  inline-size: 100%;
+  aspect-ratio: 1/1;
+}
+
+.grayscale {
+  filter: grayscale(0.7);
+}
+
+.saturate {
+  filter: saturate(5);
+}
+
+.hue {
+  filter: hue-rotate(26deg);
+}
+
+.invert {
+  filter: invert(0.8);
+}
+
+.sepia {
+  filter: sepia(90%);
+}
+
+.blur {
+  filter: blur(8px);
+}
+
+.mult {
+  filter: hue-rotate(60deg) contrast(0.5) brightness(1.4);
+}
+
+.watermark {
+  position: absolute;
+  opacity: 0.5;
+  font-family: var(--font-accent, Courier, monospace);
+  font-size: 14px;
+  text-shadow:
+    -1 0 var(--color-bg),
+    0 1px var(--color-bg),
+    1px 0 var(--color-bg),
+    0 -1px var(--color-bg);
+  inset-block-start: 25px;
+  inset-inline-end: clamp(0.8125rem, 0.5475rem + 1.1278vw, 1.5625rem);
+  mix-blend-mode: hard-light;
+}
+
+
+
+.card__text {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  border-block-start: 2px solid var(--color-main);
+  padding: 20px 25px 25px;
+
+  font-size: 18px;
+  line-height: 1.16;
+}
+
+.card__buttons {
+  display: flex;
+  justify-content: end;
+  gap: 3px;
+  padding: 0 25px 25px;
+}
+
+.button {
+  position: relative;
+  border: 2px solid var(--color-main);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.button__text {
+  color: var(--color-blend);
+  font-family: var(--font-accent, Courier, monospace);
+  font-size: 14px;
+  line-height: 1.11;
+  mix-blend-mode: difference;
+}
+
+.card__like-button {
+  min-inline-size: 130px;
+}
+
+.btn-shad:focus {
+  box-shadow: 2px 2px 0 var(--color-main);
+  outline: none;
+}
+
+.button-paint::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  background-color: currentColor;
+  transition: 0.5s ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.button-paint:hover::before {
+  transform: scaleX(1);
+}
+
+.card__icon-button {
+  border: 2px solid transparent;
+  padding: 0;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border: 2px solid var(--color-main);
+  outline: none;
+}
+
+.like-icon {
+  overflow: visible;
+  inline-size: 39px;
+}
+
+.core,
+.main-body {
+  fill: transparent;
+}
+
+
+.sparks {
+  opacity: 0;
+}
+
+.save {
+  display: flex;
+  justify-content: center;
+  padding: 52px 0 103px;
+}
+
+.save__button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 18px 20px;
+  background-color: var(--color-bg);
+}
+
+.popup {
+  border: 2px solid var(--color-main);
+  padding: 30px;
+  color: var(--color-main);
+  font-family: var(--font-accent, Courier, monospace);
+  text-transform: uppercase;
+  background-color: var(--color-bg);
+  max-inline-size: 357px;
+}
+
+.popup[open] {
+  display: flex;
+  flex-direction: column;
+}
+
+.popup__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.popup__text {
+  flex: 1;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.form {
+  padding-block-start: 30px;
+}
+
+.popup__close-btn {
+  padding-block-start: 12.5px;
+  padding-block-end: 12.5px;
+  text-transform: uppercase;
+  inline-size: 100%;
+}
+
+.popup::backdrop {
+  opacity: 0.75;
+  background-color: rgba(0, 0, 0, 1);
+}
+
+.floppy {
+  color: var(--color-blend);
+  mix-blend-mode: difference;
+  inline-size: 21px;
+}
+
+.floppy-dlg {
+  inline-size: 39px;
+}
+
+@media (width <=375px) {
+  .watermark {
+    inset-inline-end: 13px;
+  }
+
+  .save__button {
+    flex-direction: column;
+  }
+
+  .popup {
+    padding: clamp(1.875rem, -2.4886rem + 21.8182vw, 2.625rem);
+  }
+
+  .floppy {
+    inline-size: 28px;
+  }
 }
