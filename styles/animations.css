@@ -9,7 +9,7 @@
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
 */
-@keyframes arrow {
+@keyframes move-inline {
   from {
     inset-inline-start: -16px;
   }
@@ -19,7 +19,7 @@
   }
 }
 
-@keyframes big-heart {
+@keyframes scale-up {
   from {
     transform: scale(1);
   }
@@ -29,7 +29,7 @@
   }
 }
 
-@keyframes sparks {
+@keyframes fade-in-out {
   from {
     opacity: 0;
   }
@@ -39,24 +39,6 @@
   to {
     opacity: 0;
   }
-}
-
-.theme-menu__button {
-  transition: opacity 0.5s ease;
-}
-
-.theme-menu__button:disabled::before {
-  animation: arrow 0.5s ease-in-out infinite alternate;
-}
-
-.theme-menu__button::after {
-  transition: transform 0.3s;
-  transform: scalex(0);
-  transform-origin: left;
-}
-
-.theme-menu__button:focus-visible::after {
-  transform: scalex(1);
 }
 
 .btn-shad {
@@ -100,7 +82,7 @@
 
 .like-icon.is-liked .heart {
   transform-origin: center;
-  animation: big-heart 0.3s ease-in 0.1s alternate;
+  animation: scale-up 0.3s ease-in 0.1s alternate;
 }
 
 .like-icon .sparks {
@@ -108,7 +90,7 @@
 }
 
 .like-icon.is-liked .sparks {
-  animation: sparks 0.3s ease-in 0.3s forwards;
+  animation: fade-in-out 0.3s ease-in 0.3s forwards;
 }
 
 .like-icon:not(.is-liked):hover .core,
