@@ -4,7 +4,6 @@
 ✦ like-icon — для svg-иконки анимированного сердца
 ✦ card__like-button — для кнопки Like рядом с иконкой
 ✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
 ✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
@@ -16,7 +15,6 @@
   color: var(--color-main, #000);
 
   font-family: var(--font-main), Arial, sans-serif;
-  font-weight: var(--font-weight-main, 400);
   background-color: var(--color-bg, #fff);
   background-image: var(--img-bg);
   background-size: cover;
@@ -267,7 +265,6 @@
 .popup__close-btn {
   padding: 10px 0;
   text-transform: uppercase;
-  inline-size: 100%;
   inline-size: clamp(16.3125rem, 15.61rem + 3vw, 18.3125rem);
 }
 
